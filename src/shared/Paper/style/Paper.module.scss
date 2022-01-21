@@ -1,0 +1,10 @@
+@import "../../../styles/var";
+
+.paper {
+  width: 100%;
+  border: none;
+  border-radius: var(--br-ten);
+  box-shadow: var(--bs-main);
+  padding: 16px;
+  background-color: var(--white-color);
+}

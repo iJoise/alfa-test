@@ -1,0 +1,1 @@
+export { DogsCardItem } from './DogsCardItem';

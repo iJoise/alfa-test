@@ -1,0 +1,36 @@
+//<ПЕРЕМЕННЫЕ SCSS>===========================================================================================================
+$minWidth: 320px;
+$maxWidth: 1920;
+$maxWidthContainer: 1140;
+$md1: $maxWidthContainer + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+
+:root {
+  /*Font*/
+  --fontFamily: 'Roboto', sans-serif;
+
+  /*radius*/
+  --br-ten: 10px;
+  --br-five: 5px;
+
+  /*box-shadow*/
+  --bs-main: 0px 0px 5px rgba(0, 8, 80, 0.2);
+
+  /*Color*/
+  --font-color: #000000;
+  --gray-color: rgba(142, 142, 147, 0.44);
+  --white-color: #FFFFFF;
+  --bgc-footer: #363636;
+  --blue-color: #0E9BFF;
+  --secondary-blue-color: #36ACFF;
+  --error-color: #E83038;
+  --confirm-color: #3CCF4A;
+
+}
+
+
+
+
+

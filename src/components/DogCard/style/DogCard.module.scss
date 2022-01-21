@@ -1,0 +1,10 @@
+@import "../../../styles/var";
+
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  @media (max-width: $md3+px) {
+    gap: 20px;
+  }
+}
