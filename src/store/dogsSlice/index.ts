@@ -1,9 +1,10 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { DogsInitialStateType, DogsType } from 'store/dogsSlice/dogs-type';
+import { DogsInitialStateType, DogsType, Filter } from 'store/dogsSlice/dogs-type';
 
 const dogsInitialState: DogsInitialStateType = {
   dogs: [],
+  filter: 'all',
 };
 
 const dogsSlice = createSlice({
@@ -20,8 +21,12 @@ const dogsSlice = createSlice({
     deleteDogCard(state, action: PayloadAction<number>) {
       state.dogs = state.dogs.filter(dog => dog.id !== action.payload);
     },
+    setFilteringByLikes(state, action: PayloadAction<Filter>) {
+      state.filter = action.payload;
+    },
   },
 });
 
 export const dogsReducer = dogsSlice.reducer;
-export const { setDogs, setLiked, deleteDogCard } = dogsSlice.actions;
+export const { setDogs, setLiked, deleteDogCard, setFilteringByLikes } =
+  dogsSlice.actions;

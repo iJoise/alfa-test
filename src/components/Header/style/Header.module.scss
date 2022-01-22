@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 65px;
+  box-shadow: var(--bs-main);
+
+  button {
+    padding: 10px 40px;
+    font-size: 16px;
+    min-width: 205px;
+    border-radius: var(--br-five);
+    border: none;
+    background-color: var(--melon);
+  }
+}

@@ -6,4 +6,7 @@ export type DogsType = Dogs & {
 
 export type DogsInitialStateType = {
   dogs: DogsType[];
+  filter: Filter;
 };
+
+export type Filter = 'all' | 'liked';
