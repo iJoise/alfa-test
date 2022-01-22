@@ -17,8 +17,11 @@ const dogsSlice = createSlice({
       const index = state.dogs.findIndex(dog => dog.id === action.payload);
       state.dogs[index].liked = !state.dogs[index].liked;
     },
+    deleteDogCard(state, action: PayloadAction<number>) {
+      state.dogs = state.dogs.filter(dog => dog.id !== action.payload);
+    },
   },
 });
 
 export const dogsReducer = dogsSlice.reducer;
-export const { setDogs, setLiked } = dogsSlice.actions;
+export const { setDogs, setLiked, deleteDogCard } = dogsSlice.actions;

@@ -4,10 +4,11 @@ import s from './style/DogsCard.module.scss';
 
 import { ReactComponent as Heart } from 'assets/icons/heart.svg';
 import loader from 'assets/icons/loader.svg';
+import { ReactComponent as Trash } from 'assets/icons/trash.svg';
 import { useAppDispatch } from 'hook/useAppDispatch';
 import { Accordion } from 'shared/Accordion';
 import { Paper } from 'shared/Paper/Paper';
-import { setLiked } from 'store/dogsSlice';
+import { deleteDogCard, setLiked } from 'store/dogsSlice';
 import { DogsType } from 'store/dogsSlice/dogs-type';
 
 type DogsCardPropsType = {
@@ -20,9 +21,6 @@ export const DogsCardItem: FC<DogsCardPropsType> = React.memo(({ dogInfo }) => {
 
   const heartColor = dogInfo.liked ? '#E83038' : '#999';
 
-  const handleImageLoaded = () => setLoad(true);
-  const handleClickLiked = (id: number) => dispatch(setLiked(id));
-
   return (
     <article className={s.cardItem}>
       <Paper>
@@ -31,7 +29,7 @@ export const DogsCardItem: FC<DogsCardPropsType> = React.memo(({ dogInfo }) => {
           <img
             src={load ? dogInfo.image.url : loader}
             alt={dogInfo.name}
-            onLoad={handleImageLoaded}
+            onLoad={() => setLoad(true)}
           />
         </figure>
         <Accordion title="Подробные факты">
@@ -48,11 +46,18 @@ export const DogsCardItem: FC<DogsCardPropsType> = React.memo(({ dogInfo }) => {
         </Accordion>
         <hr />
         <div className={s.cardItem__icon}>
+          <Trash
+            color="#999"
+            width={30}
+            height={30}
+            onClick={() => dispatch(deleteDogCard(dogInfo.id))}
+          />
           <Heart
             className={s.hart}
             fill={heartColor}
             width={30}
-            onClick={() => handleClickLiked(dogInfo.id)}
+            height={30}
+            onClick={() => dispatch(setLiked(dogInfo.id))}
           />
         </div>
       </Paper>

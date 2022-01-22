@@ -2,6 +2,7 @@
 
 
 .cardItem {
+  max-width: 350px;
 
   &__image {
     height: 300px;
@@ -27,9 +28,8 @@
 
   &__icon {
     display: flex;
-    justify-content: flex-end;
-    padding-right: 20px;
-    padding-top: 10px;
+    justify-content: space-between;
+    padding: 10px 20px 0;
 
     svg {
       cursor: pointer;

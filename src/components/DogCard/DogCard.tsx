@@ -20,6 +20,7 @@ export const DogCard: FC = () => {
   console.log(dogs);
   return (
     <div className={com.container}>
+      <h1 className={s.title}>Факты о собаках</h1>
       <div className={s.card}>
         {dogs.map(el => (
           <DogsCardItem key={el.id} dogInfo={el} />
