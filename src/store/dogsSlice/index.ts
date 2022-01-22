@@ -13,8 +13,12 @@ const dogsSlice = createSlice({
     setDogs(state, action: PayloadAction<DogsType[]>) {
       state.dogs = action.payload;
     },
+    setLiked(state, action: PayloadAction<number>) {
+      const index = state.dogs.findIndex(dog => dog.id === action.payload);
+      state.dogs[index].liked = !state.dogs[index].liked;
+    },
   },
 });
 
 export const dogsReducer = dogsSlice.reducer;
-export const { setDogs } = dogsSlice.actions;
+export const { setDogs, setLiked } = dogsSlice.actions;

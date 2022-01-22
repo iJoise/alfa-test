@@ -4,19 +4,24 @@ import s from './style/DogsCard.module.scss';
 
 import { ReactComponent as Heart } from 'assets/icons/heart.svg';
 import loader from 'assets/icons/loader.svg';
+import { useAppDispatch } from 'hook/useAppDispatch';
 import { Accordion } from 'shared/Accordion';
 import { Paper } from 'shared/Paper/Paper';
+import { setLiked } from 'store/dogsSlice';
 import { DogsType } from 'store/dogsSlice/dogs-type';
 
 type DogsCardPropsType = {
   dogInfo: DogsType;
 };
 
-export const DogsCardItem: FC<DogsCardPropsType> = ({ dogInfo }) => {
+export const DogsCardItem: FC<DogsCardPropsType> = React.memo(({ dogInfo }) => {
   const [load, setLoad] = useState(false);
+  const dispatch = useAppDispatch();
+
   const heartColor = dogInfo.liked ? '#E83038' : '#999';
 
   const handleImageLoaded = () => setLoad(true);
+  const handleClickLiked = (id: number) => dispatch(setLiked(id));
 
   return (
     <article className={s.cardItem}>
@@ -29,15 +34,28 @@ export const DogsCardItem: FC<DogsCardPropsType> = ({ dogInfo }) => {
             onLoad={handleImageLoaded}
           />
         </figure>
-        {load ? 'load' : 'unload'}
         <Accordion title="Подробные факты">
-          <div>Lorem ipsum dolor.</div>
+          <dl>
+            <dt>Продолжительность жизни</dt>
+            <dd>{dogInfo.life_span}</dd>
+            <dt>Темперамент</dt>
+            <dd>{dogInfo.temperament}</dd>
+            <dt>Вес</dt>
+            <dd>{dogInfo.weight.metric}</dd>
+            <dt>Рост</dt>
+            <dd>{dogInfo.height.metric}</dd>
+          </dl>
         </Accordion>
         <hr />
         <div className={s.cardItem__icon}>
-          <Heart fill={heartColor} width={30} />
+          <Heart
+            className={s.hart}
+            fill={heartColor}
+            width={30}
+            onClick={() => handleClickLiked(dogInfo.id)}
+          />
         </div>
       </Paper>
     </article>
   );
-};
+});

@@ -30,6 +30,7 @@
     justify-content: flex-end;
     padding-right: 20px;
     padding-top: 10px;
+
     svg {
       cursor: pointer;
     }
@@ -38,4 +39,20 @@
   hr {
     margin-top: 10px;
   }
+
+  dt {
+    text-align: center;
+    font-weight: 550;
+    padding: 10px;
+    background-color: var(--gray-color);
+  }
+
+  dd {
+    padding: 10px;
+    color: var(--bgc-footer);
+  }
+}
+
+.hart:hover {
+  transform: scale(1.1);
 }
