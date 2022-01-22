@@ -10,16 +10,16 @@ import com from 'styles/common.module.scss';
 export const Header: FC = () => {
   const dispatch = useAppDispatch();
   const { filter } = useAppSelector(state => state.dogs);
+
   const btnName = filter === 'liked' ? 'Показать всех' : 'Понравившиеся';
+  const filteringByLikes = filter === 'all' ? 'liked' : 'all';
 
   return (
     <header className={s.header}>
       <div className={com.container}>
         <button
           type="button"
-          onClick={() =>
-            dispatch(setFilteringByLikes(filter === 'all' ? 'liked' : 'all'))
-          }
+          onClick={() => dispatch(setFilteringByLikes(filteringByLikes))}
         >
           {btnName}
         </button>

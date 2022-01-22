@@ -15,12 +15,11 @@ export const getDogs = createAsyncThunk(
       const { data } = await DogsService.getDogs(limit);
       const normalizedData = normalizedDataForDogs(data);
       dispatch(setDogs(normalizedData));
+      dispatch(setAppStatus('success'));
     } catch (err) {
       if (axios.isAxiosError(err)) {
         dispatch(handleAppError(err.response?.data.message));
       }
-    } finally {
-      dispatch(setAppStatus('success'));
     }
   },
 );
