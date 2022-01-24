@@ -3,7 +3,7 @@ import React, { FC } from 'react';
 import s from './style/DogCard.module.scss';
 
 import { DogsCardItem } from 'components/DogCard/components/DogsCardItem';
-import { useFilteredDogs } from 'hook/useFilteredDogs';
+import { useFilteredDogs } from 'components/DogCard/hook/useFilteredDogs';
 import { Preloader } from 'shared/Preloader/Preloader';
 import com from 'styles/common.module.scss';
 

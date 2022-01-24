@@ -2,9 +2,9 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { AppThunkType } from '../store';
 
-import { AppInitialStateType } from './app-types';
+import { AppInitialStateType, AppStatusType } from './type/app-types';
 
-import { AppStatusType, Nullable } from 'types';
+import { Nullable } from 'types';
 
 const appInitialState: AppInitialStateType = {
   errorMessage: null,

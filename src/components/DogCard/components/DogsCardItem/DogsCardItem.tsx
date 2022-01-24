@@ -5,15 +5,11 @@ import s from './style/DogsCard.module.scss';
 import { ReactComponent as Heart } from 'assets/icons/heart.svg';
 import loader from 'assets/icons/loader.svg';
 import { ReactComponent as Trash } from 'assets/icons/trash.svg';
+import { DogsCardPropsType } from 'components/DogCard/components/DogsCardItem/type';
 import { useAppDispatch } from 'hook/useAppDispatch';
 import { Accordion } from 'shared/Accordion';
 import { Paper } from 'shared/Paper/Paper';
 import { deleteDogCard, setLiked } from 'store/dogsSlice';
-import { DogsType } from 'store/dogsSlice/dogs-type';
-
-type DogsCardPropsType = {
-  dogInfo: DogsType;
-};
 
 export const DogsCardItem: FC<DogsCardPropsType> = React.memo(({ dogInfo }) => {
   const [load, setLoad] = useState(false);

@@ -1,7 +1,5 @@
 export type Nullable<T> = T | null;
 
-export type AppStatusType = 'success' | 'loading' | 'error';
-
 export interface Dogs {
   weight: Parameters;
   height: Parameters;

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { DogsInitialStateType, DogsType, Filter } from 'store/dogsSlice/dogs-type';
+import { DogsInitialStateType, DogsType, Filter } from './type/dogs-type';
 
 const dogsInitialState: DogsInitialStateType = {
   dogs: [],

@@ -8,8 +8,7 @@ const limitToRequest = 15;
 
 export const useFilteredDogs = () => {
   const dispatch = useAppDispatch();
-  const { dogs } = useAppSelector(state => state.dogs);
-  const { filter } = useAppSelector(state => state.dogs);
+  const { dogs, filter } = useAppSelector(state => state.dogs);
   const { appStatus } = useAppSelector(state => state.app);
 
   useEffect(() => {
